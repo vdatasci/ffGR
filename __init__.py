@@ -6,4 +6,4 @@ response = request.get('https://feedwm.org/faqs/click-here-for-our-mobile-food-p
 html = response.content
 soup = bs(html, 'html.parser')
 
-soup
+anchorContents = [link.string for link in soup.findAll('a')]
