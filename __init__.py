@@ -6,4 +6,7 @@ response = request.get('https://feedwm.org/faqs/click-here-for-our-mobile-food-p
 html = response.content
 soup = bs(html, 'html.parser')
 
-anchorContents = [link.string for link in soup.findAll('a')]
+anchorContents = [str(link.string) for link in soup.findAll('a')]
+
+GRmatches = filter(re.compile('.*Grand Rapids.*').match, anchorContents)
+indexGRmatches = [i for i,val in enumerate(anchorContents) if re.match('.*Grand Rapids.*', val)]
