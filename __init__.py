@@ -14,4 +14,4 @@ soup = bs(html, 'html.parser')
 lis = [li.text for li in soup.findAll('li')]
 lis = [x.encode('utf-8').strip() for x in lis]
 
-filter(re.compile('[0-9]:[0-9]').match, lis)
+grtimes = filter(re.compile('[0-9]:[0-9]').match, lis)
