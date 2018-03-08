@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup as bs
 import requests
 import re
+from dateutil import parser
+
 
 response = request.get('https://feedwm.org/faqs/click-here-for-our-mobile-food-pantry-schedule')
 html = response.content
@@ -15,3 +17,9 @@ lis = [li.text for li in soup.findAll('li')]
 lis = [x.encode('utf-8').strip() for x in lis]
 
 grtimes = filter(re.compile('[0-9]:[0-9]').match, lis)
+
+filter(re.compile('[0-9]+..[0-9]').match, grtimes)
+
+
+# Example of datetime parser
+parser.parse('March 7, 2018 4:00 PM')
