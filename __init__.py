@@ -6,7 +6,7 @@ from datetime import datetime
 import datetime
 
 
-response = request.get('https://feedwm.org/faqs/click-here-for-our-mobile-food-pantry-schedule')
+response = requests.get('https://feedwm.org/faqs/click-here-for-our-mobile-food-pantry-schedule')
 html = response.content
 soup = bs(html, 'html.parser')
 
