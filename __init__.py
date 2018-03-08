@@ -27,6 +27,10 @@ tags = [tag.encode('utf-8').strip() for tag in tags]
 ffdata = filter(re.compile('[0-9]:[0-9]|\w+.\d+\,.\d+').match, tags)
 
 
+for x in ffdata:
+    if re.match('\w+.\d+\,.\d+', x) is not None:
+        print(x)
+
 
 ## Example of datetime parser
 #parser.parse('March 7, 2018 4:00 PM')
