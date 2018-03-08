@@ -23,3 +23,11 @@ filter(re.compile('[0-9]+..[0-9]').match, grtimes)
 
 # Example of datetime parser
 parser.parse('March 7, 2018 4:00 PM')
+
+
+h3s = [h3.text for h3 in soup.findAll('h3')]
+h3s = [h3.encode('utf-8').strip() for h3 in h3s]
+grdates = filter(re.compile('\w+.\d+\,.\d+').match, h3s)
+
+
+
