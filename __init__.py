@@ -30,9 +30,12 @@ ffdata = filter(re.compile('[0-9]:[0-9]|\w+.\d+\,.\d+').match, tags)
 for x in ffdata:
     if re.match('\w+.\d+\,.\d+', x) is not None:
         d = str(x)
+        del ffdata[int(ffdata.index(x))]
     else:
         ffdata[int(ffdata.index(x))] = str(d + ' ' + x)
 
+
+ffdata = [x for x in ffdata if not re.compile('\w+.\d+\,.\d+$').match(x)]
 
 
 
