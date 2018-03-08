@@ -37,6 +37,8 @@ for x in ffdata:
 
 ffdata = [x for x in ffdata if not re.compile('\w+.\d+\,.\d+$').match(x)]
 
+ffdre = re.compile('.*(?=\s\-\s)')
+
 
 
 ## Example of datetime parser
