@@ -30,9 +30,9 @@ parser.parse('March 7, 2018 4:00 PM')
 h3s = [h3.text for h3 in soup.findAll('h3')]
 h3s = [h3.encode('utf-8').strip() for h3 in h3s]
 grdates = filter(re.compile('\w+.\d+\,.\d+').match, h3s)
+grdates = [parser.parse(str(d)).strftime('%Y-%m-%d') for d in grdates]
 
 
-#[d.strftime('%Y-%m-%d') for d in grdates]
 #2018-03-6T10:00:00+02:00
 
 
