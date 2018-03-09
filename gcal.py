@@ -49,7 +49,7 @@ def get_credentials():
     return credentials
 
 
-def add_event():
+def add_event(start, end, summary):
   """Add an event using the Google Calendar API.
   Creates a Google Calendar API service object
   and creates a new event on the user's calendar.
@@ -61,9 +61,9 @@ def add_event():
   body = {
     u'status': u'confirmed',
     u'kind': u'calendar#event',
-    u'start': {u'dateTime': u'2018-03-6T10:00:00+02:00'},
-    u'end': {u'dateTime': u'2018-03-6T10:50:00+02:00'},
-    u'summary': u'josh test event summary',
+    u'start': {u'dateTime': start},
+    u'end': {u'dateTime': end},
+    u'summary': summary,
     u'organizer': {u'self': True, u'displayName': u'Joshua Voss', u'email': u'joshuavoss777@gmail.com'},
     u'creator': {u'self': True, u'displayName': u'Joshua Voss', u'email': u'joshuavoss777@gmail.com'}
   }
